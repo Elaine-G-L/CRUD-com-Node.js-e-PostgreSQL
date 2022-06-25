@@ -21,13 +21,13 @@ router.get('/products', productController.listAllProducts);
 
 router.get('/products/:id', productController.findProductById);
 
-// => Rota responsável por atualizar product pelo ID (GET): localhost:3000/api/products/
+// => Rota responsável por atualizar product pelo ID (GET): localhost:3000/api/products/:id
 
-router.update('/products/:id', productController.updateProductById);
+router.put('/products/:id', productController.updateProductById);
 
-// => Rota responsável por deletar product pelo ID (GET): localhost:3000/api/products/
+// => Rota responsável por deletar product pelo ID (GET): localhost:3000/api/products/:id
 
-router.delete('/products/:id', productController.deleteProductById);
+//router.delete('/products/:id', productController.deleteProductById);
 
 
 

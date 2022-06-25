@@ -39,3 +39,13 @@ exports.findProductById = async(req, res) => {
     const response = await db.query('SELECT * FROM produtos WHERE produto_id = $1', [produto_id]);
     res.status(200).send(response.rows);
 }
+
+// => Método responsável por atualizar o product pelo ID. 
+exports.updateProductById = async(req, res) => {
+    const produto_id = parseInt(req.params.id);
+    const { nome_produto, grupo_alimentar, ingredientes } = req.body;
+    const response = await db.query('UPDATE produtos SET nome_produto = $1, grupo_alimentar = $2, ingredientes = $3 WHERE produto_id = $4', 
+    [nome_produto, grupo_alimentar, ingredientes, produto_id]);
+
+    res.status(200).send({ message: "Produto Atualizado!"});
+}
