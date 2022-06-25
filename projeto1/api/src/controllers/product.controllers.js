@@ -49,3 +49,12 @@ exports.updateProductById = async(req, res) => {
 
     res.status(200).send({ message: "Produto Atualizado!"});
 }
+
+// => Método responsável por deletar o product pelo ID. 
+
+exports.deleteProductById = async(req, res) => {
+    const produto_id = parseInt(req.params.id);
+    await db.query('DELETE FROM produtos WHERE produto_id = $1', [produto_id]);
+
+    res.status(200).send({ message: "Produto deletado com sucesso!", produto_id});
+}
