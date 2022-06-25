@@ -9,8 +9,12 @@ const productController = require('../controllers/product.controllers');
 
 // => Definindo as rotas do CRUD products.
 
-// => Rota responsável por criar um novo Product (POST): localhost/3000/api/products
+// => Rota responsável por criar um novo Product (POST): localhost:3000/api/products
 
 router.post('/products', productController.createProduct);
+
+// => Rota responsável por selecionar todos os products (GET): localhost:3000/api/products
+
+router.get('/products', productController.listAllProducts);
 
 module.exports = router;

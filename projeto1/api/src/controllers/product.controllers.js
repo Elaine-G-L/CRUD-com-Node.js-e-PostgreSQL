@@ -24,3 +24,10 @@ exports.createProduct = async(req, res) => {
         },
     });
 };
+
+// => Método responsável por listar todos os products. 
+
+exports.listAllProducts = async(req, res) => {
+    const response = await db.query('SELECT * FROM produtos ORDER BY nome_produto ASC');
+    res.status(200).send(response.rows);
+}
