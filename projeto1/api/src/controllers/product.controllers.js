@@ -31,3 +31,11 @@ exports.listAllProducts = async(req, res) => {
     const response = await db.query('SELECT * FROM produtos ORDER BY nome_produto ASC');
     res.status(200).send(response.rows);
 }
+
+// => Método responsável por listar os products pelo ID. 
+
+exports.findProductById = async(req, res) => {
+    const produto_id = parseInt(req.params.id);
+    const response = await db.query('SELECT * FROM produtos WHERE produto_id = $1', [produto_id]);
+    res.status(200).send(response.rows);
+}

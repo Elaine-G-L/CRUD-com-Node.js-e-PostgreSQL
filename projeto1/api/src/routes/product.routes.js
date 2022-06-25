@@ -17,4 +17,18 @@ router.post('/products', productController.createProduct);
 
 router.get('/products', productController.listAllProducts);
 
+// => Rota responsável por selecionar um product pelo ID (GET): localhost:3000/api/products/:id
+
+router.get('/products/:id', productController.findProductById);
+
+// => Rota responsável por atualizar product pelo ID (GET): localhost:3000/api/products/
+
+router.update('/products/:id', productController.updateProductById);
+
+// => Rota responsável por deletar product pelo ID (GET): localhost:3000/api/products/
+
+router.delete('/products/:id', productController.deleteProductById);
+
+
+
 module.exports = router;
